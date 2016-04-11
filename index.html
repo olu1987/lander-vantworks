@@ -1,0 +1,795 @@
+<html lang="en">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
+<meta http-equiv="X-UA-Compatible" content="IE=edge" >
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no" >
+<meta name="description" content="Ridebliss is Nigeria's trusted social ride sharing, car sharing community that connects drivers with potential passengers for a friendly ride." >
+<meta name="keywords" content="ridebliss, ridebliss.com, ride sharing, car sharing, social ride sharing across Nigeria, faster travel with ridebliss, friendly car sharing across Nigeria, carpooling Nigeria, car sharing Lagos, ride sharing Abuja, go places with Ridebliss, share your ridde with ridebliss, find and share rides, ridebliss social ride sharing" >
+<title>Ridebliss | Nigeria's trusted social ride sharing community</title>
+<!-- Open graph tags -->
+<meta property="fb:app_id" content="327634444037550"/>
+<meta property="og:url" content="http://www.ridebliss.com/"/>
+<meta property="og:title" content="Ridebliss - Nigeria's trusted ride sharing community."/>
+<meta property="og:site_name" content="Ridebliss"/>
+<meta property="og:type" content="website"/>
+<meta property="og:description" content="Ride sharing, car sharing - search for journeys and ride together with trusted friends and colleagues"/>
+<meta property="og:image" content="http://www.ridebliss.com/image/ridebliss-graph-logo.jpg">
+	
+
+	
+	
+
+
+<!-- END Open graph tags -->
+
+<!-- links for jQuery ALS scroll -->
+
+
+<!-- jQuery cdn files -->
+
+
+
+<!-- END links for jQuery ALS scroll -->
+
+
+
+
+								  
+
+
+	
+
+					
+
+<link href="image/favicon.ico" rel="icon" >
+<link href="https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" media="screen" rel="stylesheet" type="text/css" >
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" media="screen" rel="stylesheet" type="text/css" >
+<link href="js/jquery/css/ui-lightness/jquery-ui-1.10.2.custom.css" media="screen" rel="stylesheet" type="text/css" >
+<link href="css/bootstrap-ms-grid.min.css" media="screen" rel="stylesheet" type="text/css" >
+<link href="css/bootstrap-overrides.css" media="screen" rel="stylesheet" type="text/css" >
+<link href="css/styles.css" media="screen" rel="stylesheet" type="text/css" >
+<link href="css/styles-responsive.css" media="screen" rel="stylesheet" type="text/css" >
+	
+<link href='https://fonts.googleapis.com/css?family=Raleway:100,400,300|Montserrat|Comfortaa|Oxygen:bold' rel='stylesheet' type='text/css'>
+
+
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
+<script src="js/jquery.validate.min.js"></script>
+<script type="text/javascript" src="js/jquery.als-1.7.min/jquery.als-1.7.min.js"></script>
+<script type="text/javascript">
+    //<!--
+
+                                    $(document).ready(function() {
+									$( "#ride_date" ).datepicker({dateFormat: "dd/mm/yy" , 
+									showOtherMonths: true, 			changeMonth: false, minDate: 0,
+			changeYear: false, defaultDate: +7}).attr("readOnly", "true");
+									});    //-->
+</script>
+<script type="text/javascript">
+    //<!--
+$(document).ready(function() {
+function log( message ) {
+			$( "<div/>" ).text( message ).prependTo( "#log" );
+			$( "#log" ).scrollTop( 0 );
+		}
+
+		$( "#departure, #destination" ).autocomplete({
+			source: "/rides/destination",
+			minLength: 2,
+			select: function( event, ui ) {
+				log( ui.item ?
+					"Selected: " + ui.item.value + " aka " + ui.item.id :
+					"Nothing selected, input was " + this.value );
+			}
+		});
+	});    //-->
+</script>
+
+<script>
+	$(function() {
+				$( "#tabs" ).tabs();
+				});
+	 </script>
+<!-- GA -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','http://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-44814575-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<!-- END GA -->
+
+<script type="text/javascript">
+function validateForm()
+{
+var departure = document.forms["SearchRidesForm"]["departure"].value;
+var destination = document.forms["SearchRidesForm"]["destination"].value;
+if (departure == "where are you departing from?" || departure =="")
+  {
+  alert("Please enter where you are departing from. E.g Ikeja, Victoria Island");
+  return false;
+  }
+  
+/**if (destination == "where would you like to go?" || destination =="")
+  {
+  alert("Please enter where you are going to.");
+  return false;
+  } 
+**/  
+}
+</script>
+
+
+		<!--[if lt IE 9]>
+			<script src="/js/html5shiv.js"></script>
+			<script src="/js/respond.min.js"></script>
+			<link href="/js/ie8/respond-proxy.html" id="respond-proxy" rel="respond-proxy" />
+			<link href="/js/ie8/respond.proxy.gif" id="respond-redirect" rel="respond-redirect" />
+			<script src="/js/ie8/respond.proxy.js"></script>
+		<![endif]-->
+				
+
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top navbar-admin">
+	<div class="container">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="/"><img src="./image/ridebliss-logo.png" alt="Ridebliss logo. Social ride sharing, car sharing, car pooling in Nigeria" width="175px" height="44px"></a>
+		</div>
+		<!-- desktop menu -->
+		<div class="collapse navbar-collapse visible-md visible-lg">
+			<ul class="nav navbar-nav">
+				<li ><a href="/how-it-works">How it Works</a></li>
+				<li class="current_menu"><a href="/about/why-use-ridebliss">Why Ridebliss</a></li>
+				<!-- referral link moved into user's account area left menu -->
+				<!-- <li><a href="/social/linkedin-verify/provider/linkedin"> LinkedIn</a></li> -->
+			</ul>
+			
+			
+			<ul class="nav navbar-nav navbar-right">
+			
+								<li><a href="/user/register">Join Now</a></li>
+				<li class="divider">|</li>
+				<li><a href="/user/login">Log In</a></li>
+				
+								
+				<li><a class="special" href="/rides/add">Post Your Ride</a></li>
+			</ul>
+		</div> <!-- /.collapse navbar-collapse -->
+		<!-- end desktop menu -->
+
+		<!-- toggle button for mobile menu -->
+		<button type="button" class="navigation-toggle visible-xs visible-sm" data-toggle="collapse">MENU
+			<i class="fa fa-bars fa-fw"></i>
+		</button>
+
+		<!-- mobile menu -->
+		<div class="nav navbar-collapse">
+			<div class="mobile-menu visible-xs visible-sm">
+				<ul class="mobile-menu-links">
+				
+					
+					<li><a href="/user/login">Log In</a></li>
+					<li><a href="/user/register">Join Now</a></li>
+					<li class="specialXXX"><a href="/rides/add">Post Your Ride</a></li>
+					<li class="special"><span>About Us<span></li>
+					<li><a href="/about">About</a></li>
+					<li><a href="/how-it-works">How it Works</a></li>
+					<li><a href="/about/why-use-ridebliss">Why Ridebliss</a></li>
+					<li><a href="/about/faqs">FAQs</a></li>
+					<li><a href="/about/safety">Trust and Safety</a></li>
+					<li class="divider"></li>
+					<li><a href="/about/contact-us">Contact Us</a></li>
+	
+									
+				</ul> <!-- /.mobile-menu-links -->
+			</div> <!-- /.mobile-menu -->
+		</div> <!-- ./nav navbar-collapse -->
+		<!-- /mobile-menu -->
+	</div> <!-- /.container -->
+</nav> <!-- /.nav - main top menu -->
+
+
+		<!--[if lt IE 9]>
+		<div class="container">
+			<div class="alert alert-danger">
+				<i class="fa fa-exclamation fa-fw pull-left fa-3x"></i>
+				<p>You are using an outdated version of your browser. If you still like to use Internet Explorer, please upgrade it to the <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">latest version</a>.</p>
+				<p>Or you can select any of these alternatives: <a href="https://www.google.com/chrome/browser/desktop/index.html">Chrome</a>, <a href="https://www.mozilla.org/en-US/firefox/new/">Firefox</a>.</p>
+			</div>
+		</div>
+		<![endif]-->
+<div class="container-fluid">
+	<div class="home-slider">
+		<ul>
+			<li><img class="img-responsive" src="assets/gallery/lagos-traffic-blurred.jpg"></li>
+		</ul>
+	</div>
+	<div class="container">
+	<span class="scrollTarget"></span>
+			<div class="jumbotron home_img_long">
+			
+				
+				
+				<div class="row lander-row">
+				<div class="col-sm-8">
+						    
+						    <h1><span class="big-text">Ridebliss</span><br>The <span>smarter</span> way to commute in Lagos with <span>your friends</span> and <span>colleagues</span>.</h1>
+						</div>
+				        
+						<div class="col-sm-4 formBox">
+					
+							<form id="userAdform" name="userAdform" enctype="multipart/form-data" class="form-horizontal" action="register" method="post">
+
+<input type="hidden" name="user_id" value="0" id="user_id">
+<div class="form-group small">
+<div class="col-sm-12 form-top-space input1">
+<input type="text" name="first_name" id="first_name" value="" class="form-control input-lg" placeholder="First name*"></div>
+
+<div class="col-sm-12 form-top-space">
+<input type="text" name="last_name" id="last_name" value="" class="form-control input-lg" placeholder="Surname*"></div></div>
+<div class="form-group small">
+<div class="col-sm-12">
+<input type="email" name="email" id="email" value="" class="form-control input-lg" placeholder="Email*">
+
+<p class="hint email">We will never share your email with anyone</p></div></div>
+<div class="form-group small">
+<div class="col-sm-12">
+<input minlength="6"  type="password" name="password" id="password" value="" placeholder="Password*" class="form-control input-lg"></div></div>
+<div class="form-group small">
+<div class="col-sm-12">
+<div class="gender_box">
+<label class="gender_label" for="gender-Female"><input type="radio" name="gender" id="gender-Female" value="Female" class="radio-inline gender-margin">Female</label><span class="gender_separator"></span><label class="gender_label" for="gender-Male"><input type="radio" name="gender" id="gender-Male" value="Male" class="radio-inline gender-margin">Male</label><br></div></div></div>
+<div class="form-group small"><div class="col-sm-12">
+
+<p class="hint mail"><input type="hidden" name="mail_me" value="0"><input type="checkbox" name="mail_me" id="mail_me" value="1" checked="checked"/>Uncheck if you don't want Ridebliss to send you relevant updates and information</p></div></div>
+<div class="form-group small"><div class="col-sm-12">
+<input type="submit" name="submit" id="submitbutton" value="Join For Free" class="btn btn-ridebliss btn-block btn-lg"></div></div></form>
+<script>
+
+</script>							
+							<div class="form-group small">
+								<div class="col-sm-12 terms">
+									By submitting this form you confirm that you agree to our website <span class="user-login alt"><a href='/about/terms' target='_blank'>Terms of Use</a></span> and <span class="user-login alt"><a href='/about/privacy' target='_blank'>Privacy Policy</a></span>.
+								</div>
+							</div><!-- /.form-group small -->
+						</div>
+						
+						
+					</div>					
+					
+				</div><!-- /.col-sm-6 -->
+			</div><!-- /.row -->
+		</div><!-- /.create-account -->
+		
+		
+			
+		
+</div>
+			</div><!-- /.jumbotron - large text above search widget and search widget itself -->
+	</div><!-- end container -->
+</div>
+
+<div class="how-it-works content hidden-xs hidden-sm">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-4">
+				<div class="hiw-container">
+					<label class="first">Search</label>
+					<p>enter your departure or destination above and find your matching rides</p>
+				</div>
+			</div><!-- /.col-sm-4 -->
+			<div class="col-sm-4">
+				<div class="hiw-container">
+					<label class="second">Book</label>
+					<p>send ride request to driver using our private messaging system</p>
+				</div>
+			</div><!-- /.col-sm-4 -->
+			<div class="col-sm-4">
+				<div class="hiw-container">
+					<label class="third">Ride</label>
+					<p>arrange ride sharing with driver, meetup and journey together</p>
+				</div>
+			</div><!-- /.col-sm-4 -->
+		</div><!-- /.row -->
+	</div><!-- /.container -->
+</div><!-- /.how-it-works.content -->
+<div class="container">
+
+
+				<div class="row visible-xs visible-sm">	
+					
+					<div class="col-sm-12">
+						<h2>Post Your Ride. It's FREE.</h2>
+						<a class="btn btn-block btn-sm soc_btn" href="/user/register/provider/facebook/?utm_source=mobile&utm_medium=mobilepost&utm_content=mobilepost&utm_campaign=postride">
+							<div class="fb_icon"></div>
+							<div class="soc_btn_text">Post Ride with Facebook</div>
+						</a>							
+					</div><!-- /.col-sm-6 border-left -->		
+				</div>
+<div class="row">
+
+		<div class="col-sm-5 col-sm-push-7 homepage">
+						
+						
+								
+				<h2>Latest Available Rides</h2>
+				
+					<div class="recent_rides_block">
+						<div class="als-container" id="my-als-list">
+							<div class="als-viewport">
+								<ul class="als-wrapper">
+								
+													   
+								   								   								   								   								   								   								   								   								   								   								   								   								   								   								   								   								   								   								   								   								
+								
+								
+									<li class="als-item">
+										<div class="recent_rides_fotobox">
+										<a href="/details/4076/ride-sharing-Ikeja-Oba-Akran-to-Victoria-Island" title="ride sharing from Ikeja Oba Akran">
+									
+										  
+							   
+																						
+											<img alt="Ridebliss car sharing from Ikeja Oba Akran to Victoria Island in Nigeria" src="imagesupload/IMG_260614141631_mthumb.jpg"  width="55px" height="55px"/>
+																						
+									   
+																				</a>	
+										</div> <!-- end recent_rides_fotobox -->
+										<div class="recent_rides_itinerary">
+											<a href="/details/4076/ride-sharing-Ikeja-Oba-Akran-to-Victoria-Island" title="ride sharing from Ikeja Oba Akran">
+											<span class="ride_departure">Ikeja Oba Akran											</span> <!-- end ride_departure -->
+											to
+											<span class="ride_destination">Victoria Island											</span> <!-- end ride_destination -->
+											</a>
+											<div class="ride_price_seat">
+												<div class="ride_price">
+												Free 
+											</div> <!-- end ride_price -->
+												per seat
+											</div> <!-- end ride_price_seat -->
+											<div class="ride_date"> 
+											Tue, 05th Apr 2016											</div>
+											<div style="margin-top:5px;"> Olagoke O.											</div>
+										</div> <!-- end recent_rides_itinerary -->
+									</li>
+									
+													   
+								   								   								   								   								   								   								   								   								   								   								   								   								   								   								   								   								   								   								   								   								
+								
+								
+									<li class="als-item">
+										<div class="recent_rides_fotobox">
+										<a href="/details/4081/ride-sharing-Apapa-to-Oshodi" title="ride sharing from Apapa">
+									
+										  
+							   
+																						
+											<img alt="Ridebliss car sharing from Apapa to Oshodi in Nigeria" src="imagesupload/IMG_210614143850_mthumb.jpg"  width="55px" height="55px"/>
+																						
+									   
+																				</a>	
+										</div> <!-- end recent_rides_fotobox -->
+										<div class="recent_rides_itinerary">
+											<a href="/details/4081/ride-sharing-Apapa-to-Oshodi" title="ride sharing from Apapa">
+											<span class="ride_departure">Apapa											</span> <!-- end ride_departure -->
+											to
+											<span class="ride_destination">Oshodi											</span> <!-- end ride_destination -->
+											</a>
+											<div class="ride_price_seat">
+												<div class="ride_price">
+												&#8358;180 
+											</div> <!-- end ride_price -->
+												per seat
+											</div> <!-- end ride_price_seat -->
+											<div class="ride_date"> 
+											Tue, 05th Apr 2016											</div>
+											<div style="margin-top:5px;"> Jennifer E.											</div>
+										</div> <!-- end recent_rides_itinerary -->
+									</li>
+									
+													   
+								   								   								   								   								   								   								   								   								   								   								   								   								   								   								   								   								   								   								   								   								
+								
+								
+									<li class="als-item">
+										<div class="recent_rides_fotobox">
+										<a href="/details/4086/ride-sharing-Magodo-to-Victoria-Island" title="ride sharing from Magodo">
+									
+										  
+							   
+																						
+											<img alt="Ridebliss car sharing from Magodo to Victoria Island in Nigeria" src="imagesupload/IMG_200614121254_mthumb.jpg"  width="55px" height="55px"/>
+																						
+									   
+																				</a>	
+										</div> <!-- end recent_rides_fotobox -->
+										<div class="recent_rides_itinerary">
+											<a href="/details/4086/ride-sharing-Magodo-to-Victoria-Island" title="ride sharing from Magodo">
+											<span class="ride_departure">Magodo											</span> <!-- end ride_departure -->
+											to
+											<span class="ride_destination">Victoria Island											</span> <!-- end ride_destination -->
+											</a>
+											<div class="ride_price_seat">
+												<div class="ride_price">
+												&#8358;80 
+											</div> <!-- end ride_price -->
+												per seat
+											</div> <!-- end ride_price_seat -->
+											<div class="ride_date"> 
+											Tue, 05th Apr 2016											</div>
+											<div style="margin-top:5px;"> Remi O.											</div>
+										</div> <!-- end recent_rides_itinerary -->
+									</li>
+									
+													   
+								   								   								   								   								   								   								   								   								   								   								   								   								   								   								   								   								   								   								   								   								
+								
+								
+									<li class="als-item">
+										<div class="recent_rides_fotobox">
+										<a href="/details/4091/ride-sharing-Badagry-to-Maryland" title="ride sharing from Badagry">
+									
+																			   
+										<img alt="Ridebliss car sharing from Badagry to Maryland in Nigeria" src="https://graph.facebook.com/1484146532/picture?type=large" width="55px" height="55px"/>
+									   
+																				</a>	
+										</div> <!-- end recent_rides_fotobox -->
+										<div class="recent_rides_itinerary">
+											<a href="/details/4091/ride-sharing-Badagry-to-Maryland" title="ride sharing from Badagry">
+											<span class="ride_departure">Badagry											</span> <!-- end ride_departure -->
+											to
+											<span class="ride_destination">Maryland											</span> <!-- end ride_destination -->
+											</a>
+											<div class="ride_price_seat">
+												<div class="ride_price">
+												&#8358;65 
+											</div> <!-- end ride_price -->
+												per seat
+											</div> <!-- end ride_price_seat -->
+											<div class="ride_date"> 
+											Tue, 05th Apr 2016											</div>
+											<div style="margin-top:5px;"> Joy-Omo E.											</div>
+										</div> <!-- end recent_rides_itinerary -->
+									</li>
+									
+													   
+								   								   								   								   								   								   								   								   								   								   								   								   								   								   								   								   								   								   								   								   								
+								
+								
+									<li class="als-item">
+										<div class="recent_rides_fotobox">
+										<a href="/details/4096/ride-sharing-Ogba-to-Festac" title="ride sharing from Ogba">
+									
+										  
+							   
+																						
+											<img alt="Ridebliss car sharing from Ogba to Festac in Nigeria" src="imagesupload/IMG_230114232024_mthumb.jpg"  width="55px" height="55px"/>
+																						
+									   
+																				</a>	
+										</div> <!-- end recent_rides_fotobox -->
+										<div class="recent_rides_itinerary">
+											<a href="/details/4096/ride-sharing-Ogba-to-Festac" title="ride sharing from Ogba">
+											<span class="ride_departure">Ogba											</span> <!-- end ride_departure -->
+											to
+											<span class="ride_destination">Festac											</span> <!-- end ride_destination -->
+											</a>
+											<div class="ride_price_seat">
+												<div class="ride_price">
+												&#8358;190 
+											</div> <!-- end ride_price -->
+												per seat
+											</div> <!-- end ride_price_seat -->
+											<div class="ride_date"> 
+											Tue, 05th Apr 2016											</div>
+											<div style="margin-top:5px;"> Collins E.											</div>
+										</div> <!-- end recent_rides_itinerary -->
+									</li>
+									
+													   
+								   								   								   								   								   								   								   								   								   								   								   								   								   								   								   								   								   								   								   								   								
+								
+								
+									<li class="als-item">
+										<div class="recent_rides_fotobox">
+										<a href="/details/4101/ride-sharing-Ajah-to-Ikeja" title="ride sharing from Ajah">
+									
+										  
+							   
+																						
+											<img alt="Ridebliss car sharing from Ajah to Ikeja in Nigeria" src="imagesupload/IMG_130114222331_mthumb.jpg"  width="55px" height="55px"/>
+																						
+									   
+																				</a>	
+										</div> <!-- end recent_rides_fotobox -->
+										<div class="recent_rides_itinerary">
+											<a href="/details/4101/ride-sharing-Ajah-to-Ikeja" title="ride sharing from Ajah">
+											<span class="ride_departure">Ajah											</span> <!-- end ride_departure -->
+											to
+											<span class="ride_destination">Ikeja											</span> <!-- end ride_destination -->
+											</a>
+											<div class="ride_price_seat">
+												<div class="ride_price">
+												&#8358;90 
+											</div> <!-- end ride_price -->
+												per seat
+											</div> <!-- end ride_price_seat -->
+											<div class="ride_date"> 
+											Tue, 05th Apr 2016											</div>
+											<div style="margin-top:5px;"> Ngozi S.											</div>
+										</div> <!-- end recent_rides_itinerary -->
+									</li>
+									
+													   
+								   								   								   								   								   								   								   								   								   								   								   								   								   								   								   								   								   								   								   								   								
+								
+								
+									<li class="als-item">
+										<div class="recent_rides_fotobox">
+										<a href="/details/4106/ride-sharing-Ogba-to-Ojota" title="ride sharing from Ogba">
+									
+										  
+							   
+																						
+											<img alt="Ridebliss car sharing from Ogba to Ojota in Nigeria" src="imagesupload/IMG_230614131801_mthumb.jpg"  width="55px" height="55px"/>
+																						
+									   
+																				</a>	
+										</div> <!-- end recent_rides_fotobox -->
+										<div class="recent_rides_itinerary">
+											<a href="/details/4106/ride-sharing-Ogba-to-Ojota" title="ride sharing from Ogba">
+											<span class="ride_departure">Ogba											</span> <!-- end ride_departure -->
+											to
+											<span class="ride_destination">Ojota											</span> <!-- end ride_destination -->
+											</a>
+											<div class="ride_price_seat">
+												<div class="ride_price">
+												&#8358;120 
+											</div> <!-- end ride_price -->
+												per seat
+											</div> <!-- end ride_price_seat -->
+											<div class="ride_date"> 
+											Tue, 05th Apr 2016											</div>
+											<div style="margin-top:5px;"> Tope O.											</div>
+										</div> <!-- end recent_rides_itinerary -->
+									</li>
+									
+													   
+								   								   								   								   								   								   								   								   								   								   								   								   								   								   								   								   								   								   								   								   								
+								
+								
+									<li class="als-item">
+										<div class="recent_rides_fotobox">
+										<a href="/details/4111/ride-sharing-Idumota-to-Ketu" title="ride sharing from Idumota">
+									
+										  
+							   
+																						
+											<img alt="Ridebliss car sharing from Idumota to Ketu in Nigeria" src="imagesupload/IMG_210614230618_mthumb.jpg"  width="55px" height="55px"/>
+																						
+									   
+																				</a>	
+										</div> <!-- end recent_rides_fotobox -->
+										<div class="recent_rides_itinerary">
+											<a href="/details/4111/ride-sharing-Idumota-to-Ketu" title="ride sharing from Idumota">
+											<span class="ride_departure">Idumota											</span> <!-- end ride_departure -->
+											to
+											<span class="ride_destination">Ketu											</span> <!-- end ride_destination -->
+											</a>
+											<div class="ride_price_seat">
+												<div class="ride_price">
+												&#8358;110 
+											</div> <!-- end ride_price -->
+												per seat
+											</div> <!-- end ride_price_seat -->
+											<div class="ride_date"> 
+											Tue, 05th Apr 2016											</div>
+											<div style="margin-top:5px;"> Joshua G.											</div>
+										</div> <!-- end recent_rides_itinerary -->
+									</li>
+									
+													   
+								   								   								   								   								   								   								   								   								   								   								   								   								   								   								   								   								   								   								   								   								
+								
+								
+									<li class="als-item">
+										<div class="recent_rides_fotobox">
+										<a href="/details/4116/ride-sharing-Ikoyi-to-Ogudu" title="ride sharing from Ikoyi">
+									
+										  
+							   
+																						
+											<img alt="Ridebliss car sharing from Ikoyi to Ogudu in Nigeria" src="imagesupload/IMG_270114080356_mthumb.jpg"  width="55px" height="55px"/>
+																						
+									   
+																				</a>	
+										</div> <!-- end recent_rides_fotobox -->
+										<div class="recent_rides_itinerary">
+											<a href="/details/4116/ride-sharing-Ikoyi-to-Ogudu" title="ride sharing from Ikoyi">
+											<span class="ride_departure">Ikoyi											</span> <!-- end ride_departure -->
+											to
+											<span class="ride_destination">Ogudu											</span> <!-- end ride_destination -->
+											</a>
+											<div class="ride_price_seat">
+												<div class="ride_price">
+												&#8358;50 
+											</div> <!-- end ride_price -->
+												per seat
+											</div> <!-- end ride_price_seat -->
+											<div class="ride_date"> 
+											Tue, 05th Apr 2016											</div>
+											<div style="margin-top:5px;"> Lawrence N.											</div>
+										</div> <!-- end recent_rides_itinerary -->
+									</li>
+									
+																		
+								</ul>	<!-- als-wrapper end -->
+
+							</div> <!-- als-viewport end -->
+
+
+						</div> <!-- als-container end -->
+
+					</div>  <!-- end recent_rides_block -->
+					
+								
+				
+				<div class="row visible-xs visible-sm">	
+					
+					<div class="col-sm-12">
+						<h2>Join Ridebliss. It's FREE.</h2>
+						<a class="btn btn-block btn-sm soc_btn" href="/user/register/provider/facebook/?utm_source=mobile&utm_medium=home_join&utm_content=news&utm_campaign=none">
+							<div class="fb_icon"></div>
+							<div class="soc_btn_text">Join with Facebook</div>
+						</a>							
+					</div><!-- /.col-sm-6 border-left -->		
+				</div>				
+			
+
+				
+							
+			<h2>Trust &amp; Safety</h2>
+			<div class="safety_fotobox">
+				<img src="image/safety_shield.jpg" width="80px" height="80px"/>
+			</div> <!-- end safety_fotobox -->
+			<div class="safety_text">
+				As a trusted ride sharing platform, we at Ridebliss take your privacy and safety seriously. We have built this service from the ground up with trust and safety in mind.
+				<p class="safety_more"><a href="/about/safety">learn about safety at Ridebliss &raquo; </a> </p>
+			</div> <!-- end safety_text -->
+		</div><!-- /latest available rides --->
+		
+		<div class="col-sm-7 col-sm-pull-5 homepage">
+			<h2>Why Ride Sharing?</h2>
+			<div class="row">
+				<div class="col-xs-12 col-sm-6 col-md-6 img_centre">
+					
+						<img alt="move-faster with Ridebliss - Social ride sharing, car sharing, car pooling in Nigeria"  src="image/faster-travel-home.png" width="130" height="130">
+					
+					<h4>Faster Commute</h4>
+					<p>Sharing the empty seats in your car with friends & colleagues, means lesser cars on the road.</p>
+				</div>
+				
+				<div class="col-xs-12 col-sm-6 col-md-6 img_centre">
+					<img alt="save-money with Ridebliss - Social ride sharing, car sharing, car pooling in Nigeria"  src="image/money-home.png" width="130" height="130">
+					<h4>Earn Extra Money</h4>
+					<p>Monetary contribution you receive from other riders could serve as fuel cost etc.</p>
+				</div>
+				
+			</div>	
+			
+			<div class="row">
+				
+				<div class="col-xs-12 col-sm-6 col-md-6 img_centre">
+					<img alt="trusted-community with Ridebliss - Social ride sharing, car sharing, car pooling in Nigeria"  src="image/community-home.png" width="130" height="130">
+					<h4>Trusted Community</h4>
+					<p>Ridebliss members are verified and responsible people who enjoy the benefits of ride sharing.</p>
+				</div>
+				
+				<div class="col-xs-12 col-sm-6 col-md-6 img_centre">
+					<img alt="affordable-fare with Ridebliss - Social ride sharing, car sharing, car pooling in Nigeria"  src="image/affordable-home.png" width="130" height="130" >
+					<h4>Affordable Fare</h4>
+					<p>Ridebliss offers a convenient and affordable daily commute option with amazing people.</p>
+				</div>
+				
+			</div>
+			
+			<p class="safety_more"><a href="/about/why-use-ridebliss">more reasons to use Ridebliss &raquo; </a> </p>
+		</div><!-- end destinations container -->
+		
+	</div>
+</div>
+
+
+
+	
+
+<footer>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 col-sm-8">
+				<p><strong>Ridebliss</strong> is Nigeria's trusted social ride sharing community. It's built on the idea that daily commute can be faster and even more fun, with friends and colleagues.</p>
+				<p>&copy; 2016 Ridebliss</p>
+			</div>
+			<div class="col-sm-4 col-md-offset-2">
+				<div class="footer-menu">
+					<div class="row">
+						<div class="col-sm-6 col-ms-6">
+							<label>About Us</label>
+							<ul>
+								<li><a href="/about">About</a></li>
+								<li><a href="/how-it-works">How it Works</a></li>
+								<li><a href="/about/why-use-ridebliss">Why Ridebliss</a></li>
+								<li><a href="/about/faqs">FAQs</a></li>
+								<li><a href="/about/safety">Trust and Safety </a></li>
+								<li><a href="/about/privacy">Privacy Policy </a></li>
+								<li><a href="/about/terms">Terms of Use</a></li>
+								<li><a href="/about/contact-us">Contact</a></li>
+							</ul>
+						</div> <!-- /.col-sm-6 - end of about us footer menu -->
+						<div class="col-sm-6 col-ms-6">
+							<label>Socialize</label>
+							<ul>
+								<li><a href="http://blog.ridebliss.com" target="_blank">Blog</a></li>
+								<li><a href="http://www.facebook.com/ridebliss" target="_blank">Facebook</a></li>
+								<li><a href="http://www.twitter.com/goridebliss" target="_blank">Twitter</a></li>
+								<!-- <li><a href="http://www.linkedin.com/company/ridebliss" target="_blank">LinkedIn</a></li>
+								<li><a href="http://www.google.com/+ridebliss" target="_blank">Google+</a></li>
+								<li><a href="http://www.youtube.com/ridebliss" target="_blank">Youtube</a></li> -->
+							</ul>
+						</div> <!-- /.col-sm-6 - end of footer social menu -->
+					</div> <!-- /.row -->
+				</div> <!-- /.container -->
+			</div> <!-- /.col-sm-4 -->
+		</div> <!-- /.row -->
+	</div> <!-- /.container -->
+</footer>	
+
+	
+
+
+
+<!-- Piwik  for HTTPS Ridebliss.com --> 
+<script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//analytics.ridebliss.com/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId', 3]);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img src="//analytics.ridebliss.com/piwik.php?idsite=3" style="border:0;" alt="" /></p></noscript>
+<!-- End Piwik Code -->
+
+
+
+
+<!-- CE -->
+        <script type="text/javascript">
+setTimeout(function(){var a=document.createElement("script");
+var b=document.getElementsByTagName("script")[0];
+a.src=document.location.protocol+"//dnn506yrbagrg.cloudfront.net/pages/scripts/0020/1441.js?"+Math.floor(new Date().getTime()/3600000);
+a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
+</script>
+
+<!-- end CE -->
+
+		<!-- <script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script> -->
+		<script src="js/scripts.js"></script>		
+
+
+
+</body>
+
+</html>
